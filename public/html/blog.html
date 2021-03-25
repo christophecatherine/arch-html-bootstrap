@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Head -->
+
+<head>
+  <!-- Meta -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Titre de la Page -->
+  <title>Home | Tuto Bootrstrap</title>
+
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/81855dfb83.js" crossorigin="anonymous"></script>
+  <!-- Style Css -->
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<!-- / Head -->
+
+<body>
+  <!-- NavBar -->
+  <nav class="navbar navbar-expand-lg fixed-top border-bottom border-dark navbar-light bg-light px-3">
+    <!-- Titre -->
+    <a class="navbar-brand" href="../../index.html">Home</a>
+    <!-- Boutton menu (hamburger) pour responcive -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <!-- Lien Vers page Admin -->
+        <li class="nav-item">
+          <a class="nav-link" href="./admin.html">Admin</a>
+        </li>
+        <!-- Lien Vers page Blog -->
+        <li class="nav-item">
+          <a class="nav-link" href="./blog.html">Blog</a>
+        </li>
+        <!-- Boutton modal de connexion -->
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="modal" data-target="#modalLogin" href="admin.html">Se Connecter</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <!-- / NavBar -->
+
+  <!-- SearchBar -->
+  <div class="container mt-5">
+    <div class="row mt-5">
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">Recherche:</span>
+        </div>
+        <input id='searchBar' onkeyup="myFunction()" type="text" class="form-control" placeholder="Rechercher"
+          aria-label="Rechercher" aria-describedby="basic-addon1">
+      </div>
+    </div>
+  </div>
+  <!-- / SearchBar -->
+
+  <!-- Liste de card -->
+  <div id='listCard' class="container py-4">
+    <div class="col-md-12 text-center">
+      <h4>Liste des articles</h4>
+    </div>
+    <div class="row">
+      <!-- Card 1 -->
+      <div style="max-width: 33%;" class="card filterCard col-md-4 col-12 col-sm-12">
+        <a class="underline-none txt-black" href="../html/descriptionID.html">
+          <img src="/public/images/code-blue.jpg" class="card-img-top" alt="..." />
+          <div class="card-body">
+            <h5 class="card-title">Card title 1</h5>
+            <p class="card-text">
+              This is a wider card with supporting text below as a natural
+              lead-in to additional content. This content is a little bit
+              longer.
+            </p>
+          </div>
+          <div class="card-footer">
+            <small class="text-muted">Last updated 3 mins ago</small>
+          </div>
+        </a>
+      </div>
+
+      <!-- Card 2 -->
+      <div style="max-width: 33%;" class="card filterCard col-md-4 col-12 col-sm-12">
+        <a class="underline-none txt-black" href="../html/descriptionID.html">
+          <img src="/public/images/code-blue.jpg" class="card-img-top" alt="..." />
+          <div class="card-body">
+            <h5 class="card-title">Card title 2</h5>
+            <p class="card-text">
+              This card has supporting text below as a natural lead-in to
+              additional content.
+            </p>
+          </div>
+          <div class="card-footer">
+            <small class="text-muted">Last updated 3 mins ago</small>
+          </div>
+        </a>
+      </div>
+
+      <!-- Card 3 -->
+      <div style="max-width: 33%;" class="card filterCard col-md-4 col-12 col-sm-12">
+        <a class="underline-none txt-black" href="../html/descriptionID.html">
+          <img src="/public/images/code-blue.jpg" class="card-img-top" alt="..." />
+          <div class="card-body">
+            <h5 class="card-title">Card title 2</h5>
+            <p class="card-text">
+              This is a wider card with supporting text below as a natural
+              lead-in to additional content. This card has even longer content
+              than the first to show that equal height action.
+            </p>
+          </div>
+          <div class="card-footer">
+            <small class="text-muted">Last updated 3 mins ago</small>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+  <!-- / Liste de card -->
+
+  <style>
+    .underline-none { text-decoration: none; }
+    .txt-black { color: black }
+
+  </style>
+
+  <!-- Script Input searchbar  -->
+  <script>
+    function myFunction() {
+      // Declare variables
+      var input, filter, listCard, filterCard, a, i, txtValue;
+      input = document.getElementById('searchBar');
+      filter = input.value.toUpperCase();
+      listCard = document.getElementById("listCard");
+      filterCard = listCard.getElementsByClassName('filterCard');
+
+      // Loop through all list items, and hide those who don't match the search query
+      for (i = 0; i < filterCard.length; i++) {
+        p = filterCard[i].getElementsByTagName("a")[0];
+        txtValue = (p.textContent || p.innerText)
+
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          filterCard[i].style.display = "";
+        } else {
+          filterCard[i].style.display = "none";
+        }
+      }
+    }
+  </script>
+  <!-- / Script Input searchbar  -->
+
+  <!-- Footer -->
+  <footer class="container-fluid text-center border-top border-dark">
+    <h5>© By Drk - 2020</h5>
+  </footer>
+  <!-- / Footer -->
+
+  <!-- Import JS -->
+  <!-- Jquery -->
+  <script src="../js/jquery.js"></script>
+  <!-- Popper -->
+  <script src="../js/popper.js"></script>
+  <!-- Bootstrap -->
+  <script src="../js/bootstrap.js"></script>
+
+</body>
+
+</html>
